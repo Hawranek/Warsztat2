@@ -93,12 +93,12 @@ public class UserDAO {
         return nowiUsersi;
     }
 
-    public void update(User user) {
+    public void update(User user) {         //działa
         try (Connection conn = DBUtil.connect();
              PreparedStatement statement = conn.prepareStatement(UPDATE)) {
             statement.setString(1, user.getUserName());
             statement.setString(2, user.getEmail());
-            statement.setString(3, user.getPassword());
+            statement.setString(3, hashPassword(user.getPassword()));
             statement.setInt(4, user.getId());
             statement.executeUpdate();
         } catch (SQLIntegrityConstraintViolationException e1) {
