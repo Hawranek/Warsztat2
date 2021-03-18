@@ -10,6 +10,8 @@ public class KeyboardReader {
     }
 
     public static int readInt(String message) {  //działa
+
+
         System.out.println(message);
         while (!scan.hasNextInt()) {
             scan.next();
@@ -21,16 +23,15 @@ public class KeyboardReader {
     }
 
     public static double readDouble(String message) {  //działa
-        try (Scanner scan = new Scanner(System.in)) {
 
-            System.out.println(message);
-            while (!scan.hasNextDouble()) {
-                scan.next();
-                System.out.println("Podana wartość nie jest liczbą.");
-            }
-            double dbl = scan.nextDouble();
-            return dbl;
+        System.out.println(message);
+        while (!scan.hasNextDouble()) {
+            scan.next();
+            System.out.println("Podana wartość nie jest liczbą.");
         }
+        double dbl = scan.nextDouble();
+        return dbl;
+
     }
 
     public static String readString(String message) {  //działą
